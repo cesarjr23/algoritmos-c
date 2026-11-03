@@ -3,17 +3,17 @@
 #include <locale.h>
 
 int main(){
-    setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, ".UTF-8");
 
     float distancia, consumo, gasolina, quantGasolina, valor;
 
-    printf("\nDist�ncia at� o destino (km): ");
+    printf("\nDistância até o destino (km): ");
     scanf("%f", &distancia);
 
-    printf("\nConsumo do ve�culo(km/l): ");
+    printf("\nConsumo do veículo(km/l): ");
     scanf("%f", &consumo);
 
-    printf("\nPre�o da gasolina: ");
+    printf("\nPreço da gasolina: ");
     scanf("%f", &gasolina);
 
     quantGasolina = distancia/consumo;

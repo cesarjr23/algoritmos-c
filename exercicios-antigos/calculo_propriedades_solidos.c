@@ -1,161 +1,155 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <math.h>
 
+int main() {
+    setlocale(LC_ALL, ".UTF-8");
 
-int main(){
-    setlocale(LC_ALL, "Portuguese");
+    const float PI = 3.14f;
+    const float DENSIDADE_ACO = 7.8f;
+    const float DENSIDADE_ALUMINIO = 2.6f;
+    const float DENSIDADE_COBRE = 8.8f;
 
-        int T10, T4, T1, litrosAco,litrosCob,litrosAlu, resto;
-        float raioE, areaE, volE , alturaPr , larguraPr , profundidadePr,areaPr , volPr, alturaCl , raioCl, areaCl, volCl, pAco, pAlu, pCob , pesototal;
+    float raioE, areaE, volE;
+    float alturaPr, larguraPr, profundidadePr, areaPr, volPr;
+    float alturaCl, raioCl, areaCl, volCl;
 
+    float volumeTotal;
+    float pesoAco, pesoAluminio, pesoCobre;
+    float litrosAco, litrosAluminio, litrosCobre;
 
-    printf("\nForne�a o raio da esfera: ");
-    scanf("%f", &raioE);
+    int materiais[3];
+    int latas9, latas5, latas1, resto;
 
+    // ESFERA
+    printf("\n=== ESFERA ===\n");
 
-    areaE=4*(3.14*(raioE*raioE));
-
-    volE=(4*(3.14*((raioE*raioE)*raioE)))/3;
-
-    pAco=volE*7.8;
-
-    pAlu=volE*2.6;
-
-    pCob=volE*8.8;
-
-    printf("\nArea da esfera = %.2f cm�", areaE);
-    printf("\nVolume da esfera = %.2f cm�",volE);
-    printf("\nPeso em a�o= %.2f gramas",pAco);
-    printf("\nPeso em aluminio= %.2f gramas",pAlu);
-    printf("\nPeso em cobre= %.2f gramas",pCob);
-
-    printf("\nForne�a a altura do paralelep�pedo: ");
-    scanf("%f", &alturaPr);
-
-    printf("\nForne�a a largura do paralelep�pedo:");
-    scanf("%f", &larguraPr);
-
-    printf("\nForne�a a profundidade do paralelep�pedo:");
-    scanf("%f", &profundidadePr);
-
-    areaPr=2*(alturaPr*larguraPr)+2*(alturaPr*profundidadePr)+2*(larguraPr*profundidadePr);
-    volPr=alturaPr*larguraPr*profundidadePr;
-    pAco=volPr*7.8;
-    pAlu=volPr*2.6;
-    pCob=volPr*8.8;
-
-    printf("\nArea do paralelepipedo =%.2f cm�", areaPr);
-    printf("\nVolume do paralelepipedo =%.2f cm�\n",volPr);
-    printf("\nPeso em a�o= %.2f gramas",pAco);
-    printf("\nPeso em aluminio= %.2f gramas",pAlu);
-    printf("\nPeso em cobre= %.2f gramas",pCob);
-
-    printf("\nForne�a o raio do cilindro: ");
-    scanf("%f", &raioCl);
-
-    printf("\nForne�a a altura do cilindro: ");
-    scanf("%f", &alturaCl);
-
-    areaCl=2*(3.14*(raioCl*raioCl))+2*(3.14)*(raioCl*alturaCl);
-
-    volCl=3.14*((raioCl*raioCl)*alturaCl);
-    pAco=volPr*7.8;
-
-    pAlu=volPr*2.6;
-
-    pCob=volPr*8.8;
-
-    printf("\nArea do cilindro =%.2f cm�", areaCl);
-    printf("\nVolume do cilindro =%.2f cm�\n",volCl);
-    printf("\nPeso em a�o= %.2f gramas",pAco);
-    printf("\nPeso em aluminio= %.2f gramas",pAlu);
-    printf("\nPeso em cobre= %.2f gramas",pCob);
-
-
-    pesototal = volCl+ volE+volPr;
-
-    pAco=pesototal*7.8;
-
-    pAlu=pesototal*2.6;
-
-    pCob=pesototal*8.8;
-
-    printf("\nPeso total da estatua em a�o:%.2f gramas", pAco);
-    printf("\nPeso total da estatua em aluminio:%.2f gramas", pAlu);
-    printf("\nPeso total da estatua em a�o:%.2f gramas", pCob);
-
-    litrosAco = pAco*0.02;
-
-    litrosAlu = pAlu*0.01;
-
-    litrosCob = pCob*0.015;
-
-    T10= litrosAco/10;
-
-    resto=litrosAco - (10*10);
-
-    if (resto>=4)
-    {
-        T4= resto/4;
+    printf("Forneca o raio da esfera (cm): ");
+    if (scanf("%f", &raioE) != 1 || raioE <= 0) {
+        printf("Raio invalido!\n");
+        return 1;
     }
-    if (resto<4)
-        T1=resto;
 
+    areaE = 4 * PI * raioE * raioE;
+    volE = (4.0f / 3.0f) * PI * raioE * raioE * raioE;
 
-    if (T10!=0)
-    printf("\n%d Latas de 9 litros.", T10 );
-    if (T4!=0)
-    printf("\n%d Latas de 5 litros.", T4 );
-    if (T1!=0)
+    printf("\nArea da esfera: %.2f cm²\n", areaE);
+    printf("Volume da esfera: %.2f cm³\n", volE);
+    printf("Peso em aco: %.2f gramas\n", volE * DENSIDADE_ACO);
+    printf("Peso em aluminio: %.2f gramas\n", volE * DENSIDADE_ALUMINIO);
+    printf("Peso em cobre: %.2f gramas\n", volE * DENSIDADE_COBRE);
 
-    printf("\n%d Latas de 1 litro para o material A�O", T1);
+    // PARALELEPIPEDO
+    printf("\n=== PARALELEPIPEDO ===\n");
 
-    T10= litrosAlu/10;
-
-    resto=litrosAlu - (10*10);
-
-    if (resto>=4)
-    {
-        T4= resto/4;
+    printf("Forneca a altura (cm): ");
+    if (scanf("%f", &alturaPr) != 1 || alturaPr <= 0) {
+        printf("Altura invalida!\n");
+        return 1;
     }
-    if (resto<4)
-        T1=resto;
 
-
-    if (T10!=0)
-    printf("\n%d Latas de 9 litros.", T10 );
-    if (T4!=0)
-    printf("\n%d Latas de 5 litros.", T4 );
-    if (T1!=0)
-
-    printf("\n%d Latas de 1 litro para o material ALUMINIO", T1);
-
-    T10= litrosCob/10;
-    resto=litrosCob - (10*10);
-
-    if (resto>=4)
-    {
-        T4= resto/4;
+    printf("Forneca a largura (cm): ");
+    if (scanf("%f", &larguraPr) != 1 || larguraPr <= 0) {
+        printf("Largura invalida!\n");
+        return 1;
     }
-    if (resto<4)
-        T1=resto;
 
+    printf("Forneca a profundidade (cm): ");
+    if (scanf("%f", &profundidadePr) != 1 || profundidadePr <= 0) {
+        printf("Profundidade invalida!\n");
+        return 1;
+    }
 
-    if (T10!=0)
-    printf("\n%d Latas de 9 litros.", T10 );
-    if (T4!=0)
-    printf("\n%d Latas de 5 litros.", T4 );
-    if (T1!=0)
+    areaPr = 2 * (alturaPr * larguraPr +
+                  alturaPr * profundidadePr +
+                  larguraPr * profundidadePr);
 
-    printf("\n%d Latas de 1 litro Para o material COBRE", T1);
+    volPr = alturaPr * larguraPr * profundidadePr;
 
+    printf("\nArea do paralelepipedo: %.2f cm²\n", areaPr);
+    printf("Volume do paralelepipedo: %.2f cm³\n", volPr);
+    printf("Peso em aco: %.2f gramas\n", volPr * DENSIDADE_ACO);
+    printf("Peso em aluminio: %.2f gramas\n", volPr * DENSIDADE_ALUMINIO);
+    printf("Peso em cobre: %.2f gramas\n", volPr * DENSIDADE_COBRE);
 
+    // CILINDRO
+    printf("\n=== CILINDRO ===\n");
 
+    printf("Forneca o raio do cilindro (cm): ");
+    if (scanf("%f", &raioCl) != 1 || raioCl <= 0) {
+        printf("Raio invalido!\n");
+        return 1;
+    }
 
+    printf("Forneca a altura do cilindro (cm): ");
+    if (scanf("%f", &alturaCl) != 1 || alturaCl <= 0) {
+        printf("Altura invalida!\n");
+        return 1;
+    }
+
+    areaCl = 2 * PI * raioCl * raioCl +
+             2 * PI * raioCl * alturaCl;
+
+    volCl = PI * raioCl * raioCl * alturaCl;
+
+    printf("\nArea do cilindro: %.2f cm²\n", areaCl);
+    printf("Volume do cilindro: %.2f cm³\n", volCl);
+    printf("Peso em aco: %.2f gramas\n", volCl * DENSIDADE_ACO);
+    printf("Peso em aluminio: %.2f gramas\n", volCl * DENSIDADE_ALUMINIO);
+    printf("Peso em cobre: %.2f gramas\n", volCl * DENSIDADE_COBRE);
+
+    // PESO TOTAL DA ESTATUA
+    printf("\n=== PESO TOTAL DA ESTATUA ===\n");
+
+    volumeTotal = volE + volPr + volCl;
+
+    pesoAco = volumeTotal * DENSIDADE_ACO;
+    pesoAluminio = volumeTotal * DENSIDADE_ALUMINIO;
+    pesoCobre = volumeTotal * DENSIDADE_COBRE;
+
+    printf("Volume total: %.2f cm³\n", volumeTotal);
+    printf("Peso total em aco: %.2f gramas\n", pesoAco);
+    printf("Peso total em aluminio: %.2f gramas\n", pesoAluminio);
+    printf("Peso total em cobre: %.2f gramas\n", pesoCobre);
+
+    // CONSUMO DE TINTA
+    // Mantidas as proporcoes do exercicio original.
+    litrosAco = pesoAco * 0.02f;
+    litrosAluminio = pesoAluminio * 0.01f;
+    litrosCobre = pesoCobre * 0.015f;
+
+    printf("\n=== DISTRIBUICAO DAS LATAS DE TINTA ===\n");
+
+    const char *nomes[3] = {
+        "ACO", "ALUMINIO", "COBRE"
+    };
+
+    float litros[3] = {
+        litrosAco, litrosAluminio, litrosCobre
+    };
+
+    for (int i = 0; i < 3; i++) {
+        // Arredonda para cima, pois nao podemos
+        // comprar uma fracao de litro em lata fechada.
+        int quantidade = (int)ceilf(litros[i]);
+
+        latas9 = quantidade / 9;
+        resto = quantidade % 9;
+
+        latas5 = resto / 5;
+        resto = resto % 5;
+
+        latas1 = resto;
+
+        printf("\nMaterial: %s\n", nomes[i]);
+        printf("Tinta necessaria: %.2f litros\n", litros[i]);
+        printf("Quantidade considerada: %d litros\n", quantidade);
+        printf("Latas de 9 litros: %d\n", latas9);
+        printf("Latas de 5 litros: %d\n", latas5);
+        printf("Latas de 1 litro: %d\n", latas1);
+    }
 
     return 0;
-
-
 }

@@ -3,20 +3,20 @@
 #include <locale.h>
 
 int main(){
-        setlocale(LC_ALL, "Portuguese");
+        setlocale(LC_ALL, ".UTF-8");
 
     int banco;
     float saldo;
 
 
-    printf("Institui��es financeiras:");
-    printf("\n1- Banco Central de Alvin�polis City - BCA\n2- Casa da moeda de Alvin�polis City\n3- Banco Cota\n");
+    printf("Instituições financeiras:");
+    printf("\n1- Banco Central de Alvinópolis City - BCA\n2- Casa da moeda de Alvinópolis City\n3- Banco Cota\n");
 
-    printf("\nEntre com o c�digo do banco desejado: ");
+    printf("\nEntre com o código do banco desejado: ");
     scanf("%d", &banco);
 
     if(banco!=1 && banco!=2 && banco!=3){
-        printf("Op��o inv�lida!");
+        printf("Opção inválida!");
         exit (0);
     }
 

@@ -1,0 +1,5 @@
+# Executáveis gerados durante a compilação
+*.exe
+
+# Configurações locais do VS Code
+.vscode/

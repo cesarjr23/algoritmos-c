@@ -3,17 +3,17 @@
 #include <locale.h>
 
 int main(){
-    setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, ".UTF-8");
 
     int prato, sobremesa, bebida, calPrato, calSobremesa, calBebida, calorias;
 
     printf("Prato: \n");
     printf("\n 1- Vegetariano\n 2- Peixe\n 3- Frango\n 4- Carne\n");
-    printf("\nOp��o desejada: ");
+    printf("\nOpção desejada: ");
     scanf("%d", &prato);
 
     if(prato!=1 && prato!=2 && prato!=3 && prato!=4){
-        printf("Op��o inv�lida!");
+        printf("Opção inválida!");
         exit (0);
     }
     if(prato == 1){
@@ -32,11 +32,11 @@ int main(){
 
     printf("\nSobremesa: \n");
     printf("\n 1- Abacaxi\n 2- Sorvete Diet\n 3- Mousse Diet\n 4- Mousse chocolate\n");
-    printf("\nOp��o desejada: ");
+    printf("\nOpção desejada: ");
     scanf("%d", &sobremesa);
 
     if(sobremesa!=1 && sobremesa!=2 && sobremesa!=3 && sobremesa!=4){
-        printf("Op��o inv�lida!");
+        printf("Opção inválida!");
         exit (0);
         }
     if(sobremesa == 1){
@@ -54,12 +54,12 @@ int main(){
 
 
     printf("\nBebida: \n");
-    printf("\n 1- Ch�\n 2- Suco de laranja\n 3- Suco de mel�o\n 4- Refrigerante Diet\n");
-    printf("\nOp��o desejada: ");
+    printf("\n 1- Chá\n 2- Suco de laranja\n 3- Suco de melão\n 4- Refrigerante Diet\n");
+    printf("\nOpção desejada: ");
     scanf("%d", &bebida);
 
     if(bebida!=1 && bebida!=2 && bebida!=3 && bebida!=4){
-        printf("Op��o inv�lida!");
+        printf("Opção inválida!");
         exit (0);
         }
     if(bebida == 1){

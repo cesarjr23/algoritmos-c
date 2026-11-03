@@ -3,7 +3,7 @@
 #include <locale.h>
 
 int main(){
-    setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, ".UTF-8");
 
     float nota1, nota2, nota3, me, ma;
     int matricula;
@@ -12,7 +12,7 @@ int main(){
     printf("Digite seu nome: ");
     fgets(nome,40,stdin);
 
-    printf("Digite o n�mero de sua matr�cula: ");
+    printf("Digite o número de sua matrícula: ");
     scanf("%d", &matricula);
 
     printf("Entre com a primeira nota: ");
@@ -29,22 +29,22 @@ int main(){
 
 
     printf("\nNome do aluno: %s", nome);
-    printf("N�mero da sua matr�cula: %d", matricula);
-    printf("\nM�dia dos exerc�cios: %.2f", me);
-    printf("\nM�dida de aproveitamento: %.2f", ma);
+    printf("\nNúmero da sua matrícula: %d", matricula);
+    printf("\nMédia dos exercícios: %.2f", me);
+    printf("\nMédia de aproveitamento: %.2f", ma);
 
 
     if (ma >= 9){
-            printf("\nConceito A. \nParab�ns, voc� foi aprovado!!!");
+            printf("\nConceito A. \nParabéns, você foi aprovado!!!");
 
     }
     else
         if(ma>=7.5 && ma<=9){
-                printf("\nConceito B. \nParab�ns, voc� foi aprovado!!!");
+                printf("\nConceito B. \nParabéns, você foi aprovado!!!");
         }
     else
         if(ma>=6 && ma<=7.5){
-                printf("\nConceito C. \nParab�ns, voc� foi aprovado!!!");
+                printf("\nConceito C. \nParabéns, você foi aprovado!!!");
         }
     else
         if(ma>=4 && ma<=6){
